@@ -23,8 +23,8 @@ def enumerate(s, start=0):
     >>> enumerate('five', 5)
     [[5, 'f'], [6, 'i'], [7, 'v'], [8, 'e']]
     """
-    "*** YOUR CODE HERE ***"
-
+    return couple([i + start for i in range(len(s))], s)
+    
 from math import sqrt
 def distance(city1, city2):
     """
