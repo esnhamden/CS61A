@@ -25,7 +25,8 @@ def enumerate(s, start=0):
     """
     return couple([i + start for i in range(len(s))], s)
     
-from math import sqrt
+import math
+
 def distance(city1, city2):
     """
     >>> city1 = make_city('city1', 0, 1)
@@ -37,7 +38,7 @@ def distance(city1, city2):
     >>> distance(city3, city4)
     5.0
     """
-    "*** YOUR CODE HERE ***"
+    return math.sqrt((get_lat(city1)-get_lat(city2))**2 + (get_lon(city1)-get_lon(city2))**2)
 
 def closer_city(lat, lon, city1, city2):
     """
@@ -53,7 +54,9 @@ def closer_city(lat, lon, city1, city2):
     >>> closer_city(41.29, 174.78, bucharest, vienna)
     'Bucharest'
     """
-    "*** YOUR CODE HERE ***"
+    coordinate = make_city('coordinate (lat, lon)', lat, lon)
+
+    return get_name(city1) if distance(coordinate, city1) < distance(coordinate, city2) else get_name(city2)
 
 def check_abstraction():
     """
