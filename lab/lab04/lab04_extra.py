@@ -23,4 +23,4 @@ def key_of_min_value(d):
     >>> key_of_min_value(letters)
     'c'
     """
-    "*** YOUR CODE HERE ***"
+    return min(d, key = lambda i: d[i])
