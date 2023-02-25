@@ -13,7 +13,7 @@ def squares(s):
     >>> squares(seq)
     []
     """
-    "*** YOUR CODE HERE ***"
+    return [round(math.sqrt(s[i])) for i in range(len(s)) if math.sqrt(s[i]) % 1 == 0]
 
 def key_of_min_value(d):
     """Returns the key in a dict d that corresponds to the minimum value of d.
