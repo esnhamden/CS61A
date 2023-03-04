@@ -47,7 +47,12 @@ def add_chars(w1, w2):
     ...       ['For', 'While', 'Set', 'SetComp']) # Must use recursion
     True
     """
-    "*** YOUR CODE HERE ***"
+    if len(w2) == 0:
+        return ''
+    elif w2[0] in w1:
+        return add_chars(w1[1:], w2[1:])
+    else:
+        return w2[0] + add_chars(w1, w2[1:])
 
 def acorn_finder(t):
     """Returns True if t contains a node with the value 'acorn' and
