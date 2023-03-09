@@ -94,7 +94,17 @@ def sprout_leaves(t, vals):
           1
           2
     """
-    "*** YOUR CODE HERE ***"
+    new_branch_list = []
+    
+    if is_leaf(t):
+        return tree(label(t), [tree(label) for label in vals])
+        
+    for subtree in branches(t):
+        new_branch_list = new_branch_list + [sprout_leaves(subtree, vals)]
+    
+    return tree(label(t), new_branch_list)
+      
+    
 
 def add_trees(t1, t2):
     """
