@@ -103,8 +103,8 @@ def sprout_leaves(t, vals):
         new_branch_list = new_branch_list + [sprout_leaves(subtree, vals)]
     
     return tree(label(t), new_branch_list)
-      
-    
+
+
 
 def add_trees(t1, t2):
     """
@@ -141,4 +141,18 @@ def add_trees(t1, t2):
         5
       5
     """
-    "*** YOUR CODE HERE ***"
+    new_branch_list = []
+    branch_count_diff = abs(len(branches(t1)) - len(branches(t2)))
+    
+    if is_leaf(t1):
+        return tree(label(t1) + label(t2), branches(t2))
+    elif is_leaf(t2):
+        return tree(label(t1) + label(t2), branches(t1))
+    else:
+        for subtree1, subtree2 in zip(branches(t1), branches(t2)):
+            if branch_count_diff > 0:
+                new_branch_list = new_branch_list + [add_trees(subtree1, subtree2)] + branches(t1)[branch_count_diff:] + branches(t2)[branch_count_diff:]
+            else:
+                new_branch_list = new_branch_list + [add_trees(subtree1, subtree2)]
+                
+    return tree(label(t1) + label(t2), new_branch_list)       
